@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>botao</title>
+
+  <style>
+    body {
+      background-color: #d3d3d3;
+      text-align: center;
+      font-family: Arial;
+    }
+
+    h1 {
+      margin-top: 100px;
+    }
+
+    button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>botao</h1>
+
+<button id="meuBotao" onclick="mudarCor()">botao verde</button>
+
+<audio id="som" src="som2.mp3"></audio>
+
+<script>
+  let cores = [
+    {cor: "green", texto: "botao verde"},
+    {cor: "yellow", texto: "botao amarelo"},
+    {cor: "red", texto: "botao vemelho"},
+    {cor: "blue", texto: "botao azul"}
+  ];
+
+  let i = 0;
+
+  function mudarCor() {
+    i = (i + 1) % cores.length;
+
+    let botao = document.getElementById("meuBotao");
+    let som = document.getElementById("som");
+
+    botao.style.backgroundColor = cores[i].cor;
+    botao.innerText = cores[i].texto;
+
+    // tocar som
+    som.currentTime = 0;
+    som.play();
+  }
+
+  // cor inicial
+  document.getElementById("meuBotao").style.backgroundColor = "green";
+</script>
+
+</body>
+</html>
